@@ -7,7 +7,7 @@ import ProTip from '../components/ProTip';
 import Footer from '../components/footer';
 import Nav from '../components/nav';
 import { makeStyles } from '@material-ui/core/styles';
-import { TextField, CircularProgress } from '@material-ui/core';
+import { TextField, CircularProgress, Input } from '@material-ui/core';
 import UserLogin from '../services/LoginService';
 import MySnackbarContentWrapper from '../components/snackbar';
 
@@ -81,7 +81,27 @@ export default function Create() {
 
   return (
     <>
-      <Nav />
+    <div className="login-box">
+      <h2>Login</h2>
+      <form>
+        <div className="user-box">
+          <input type="text" name="" required=""/>
+          <label>Username</label>
+        </div>
+        <div className="user-box">
+          <input type="password" name="" required=""/>
+          <label>Password</label>
+        </div>
+        <a href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+      </form>
+    </div>
+      {/* <Nav />
       <Container maxWidth="sm" >
         <Box my={4}>
           <Typography variant="h4" component="h1" gutterBottom>
@@ -134,7 +154,7 @@ export default function Create() {
           <ProTip message="Not yet registered?" verb="Register" url="/create" />
         </Box>
       </Container>
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
