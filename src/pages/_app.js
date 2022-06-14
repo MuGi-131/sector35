@@ -1,15 +1,14 @@
-import React from 'react';
-import App from 'next/app';
-import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../components/theme';
-import "/public/login.css";
-
+import React from "react";
+import App from "next/app";
+import Head from "next/head";
+import { ThemeProvider } from "@material-ui/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import theme from "../components/theme";
+import "../../public/style.css";
 export default class MyApp extends App {
   componentDidMount() {
     // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
+    const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
       jssStyles.parentNode.removeChild(jssStyles);
     }
@@ -29,16 +28,18 @@ export default class MyApp extends App {
           <Component {...pageProps} />
         </ThemeProvider>
         <style jsx global>{`
-        :global(.MuiButton-root) {
-          letter-spacing: 0.0892857143em;
-        }
-          :global(html), :globa(body), :global(#__next) {
+          :global(.MuiButton-root) {
+            letter-spacing: 0.0892857143em;
+          }
+          :global(html),
+          :globa(body),
+          :global(#__next) {
             overflow: auto;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-        }
-      `}</style>
+          }
+        `}</style>
       </React.Fragment>
     );
   }

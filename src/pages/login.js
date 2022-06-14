@@ -1,160 +1,122 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import ProTip from '../components/ProTip';
-import Footer from '../components/footer';
-import Nav from '../components/nav';
-import { makeStyles } from '@material-ui/core/styles';
-import { TextField, CircularProgress, Input } from '@material-ui/core';
-import UserLogin from '../services/LoginService';
-import MySnackbarContentWrapper from '../components/snackbar';
-
-
-const useStyles = makeStyles(theme => ({
-  margin: {
-    marginLeft: theme.spacing(1),
-    marginTop: theme.spacing(2)
-  },
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-end'
-  },
-  textField: {
-  },
-}));
-
-
-function init() {
-  return {
-    username: { value: "", error: "" },
-    password: { value: "", error: "" }
+import { useState } from "react";
+import { motion } from "framer-motion";
+import CloseIcon from "@mui/icons-material/Close";
+import { LaunchAnimation } from "../components/lauchAnimation";
+export default function Page() {
+  const [selectedPlatform, setSelectedPlatform] = useState(null);
+  const [launch, setLaunch] = useState(false);
+  const choosePlatform = (platform) => {
+    setSelectedPlatform(platform);
   };
-}
-
-function reducer(state, action) {
-  return {
-    setValue: () => ({
-      ...state,
-      [action.payload.field]: { value: action.payload.value, error: "" }
-    }),
-    setError: () => ({
-      ...state,
-      [action.payload.field]: { value: state[action.payload.field].value, error: action.payload.error }
-    }),
-    reset: init
-  }[action.type]() || new Error();
-}
-
-export default function Create() {
-  const classes = useStyles();
-  const [state, dispatch] = React.useReducer(reducer, init(), init);
-  const [snackbar, setSnackbar] = React.useState({ open: false, message: "", variant: "info" });
-  const [loading, setLoading] = React.useState(false);
-
-  const validate = async (field) => {
-    // Empty check for all
-    if (state[field].value.trim() === "") {
-      dispatch({ type: "setError", payload: { field, error: "Can't be empty" } })
-    }
-  }
-
-  const handleSubmit = async () => {
-    let errors = Object.values(state).some(state => !!state.error);
-    let values = Object.values(state).every(state => !!state.value);
-    if (!loading && !errors && values) {
-      const data = {
-        username: state.username.value,
-        password: state.password.value,
-      };
-      setLoading(true);
-      const registerStatus = await UserLogin(data);
-      if (registerStatus === 200) {
-        dispatch({ type: 'reset' })
-        setSnackbar({ open: true, message: 'Login successfully', variant: 'success' });
-      } else setSnackbar({ open: true, message: 'Unable to login', variant: 'error' });
-      setLoading(false);
-    }
-  }
-
   return (
     <>
-    <div className="login-box">
-      <h2>Login</h2>
-      <form>
-        <div className="user-box">
-          <input type="text" name="" required=""/>
-          <label>Username</label>
-        </div>
-        <div className="user-box">
-          <input type="password" name="" required=""/>
-          <label>Password</label>
-        </div>
-        <a href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Submit
-        </a>
-      </form>
-    </div>
-      {/* <Nav />
-      <Container maxWidth="sm" >
-        <Box my={4}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            Login
-          </Typography>
-          <form noValidate autoComplete="off">
-            <TextField
-              fullWidth
-              label="Username"
-              className={classes.textField}
-              value={state.username.value}
-              onBlur={() => validate('username')}
-              error={!!state.username.error}
-              helperText={state.username.error}
-              onChange={(e) => dispatch({ type: 'setValue', payload: { field: 'username', value: e.target.value } })}
-              margin="normal"
-              variant="outlined"
-            />
-            <TextField
-              fullWidth
-              label="Password"
-              type="password"
-              className={classes.textField}
-              value={state.password.value}
-              onBlur={() => validate('password')}
-              error={!!state.password.error}
-              helperText={state.password.error}
-              onChange={(e) => dispatch({ type: 'setValue', payload: { field: 'password', value: e.target.value } })}
-              margin="normal"
-              variant="outlined"
-            />
-          </form>
-          <div className={classes.container}>
-            <Button color="primary" variant="contained" className={classes.margin} onClick={handleSubmit}>
-              {loading ?
-                <CircularProgress color="inherit" style={{ width: '24px', height: '24px' }} />
-                : "Login"}
-            </Button>
-            <Button color="secondary" variant="contained" className={classes.margin} onClick={() => dispatch({ type: 'reset' })}>
-              Cancel
-            </Button>
+      {launch ? (
+        <LaunchAnimation />
+      ) : (
+        <div className="bg-[url('https://www.gamemarketinggenie.com/hubfs/blockchain%20background.jpg')] bg-cover h-screen text-white flex">
+          <div className="lg:w-3/5"></div>
+          <div className="lg:w-2/5 w-full bg-black opacity-80 flex">
+            <div className="m-auto">
+              <div className="login-box">
+                <h2 className="font-bold">Login</h2>
+                {!selectedPlatform ? (
+                  <form>
+                    <div className="user-box">
+                      <input type="text" name="" required="" />
+                      <label>Username</label>
+                    </div>
+                    <div className="user-box">
+                      <input type="password" name="" required="" />
+                      <label>Password</label>
+                    </div>
+                    <a onClick={() => setLaunch(true)}>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      Submit
+                    </a>
+                  </form>
+                ) : null}
+                {selectedPlatform === "meta" ? (
+                  <div
+                    className="relative cursor-pointer"
+                    onClick={() => choosePlatform(null)}
+                  >
+                    <CloseIcon className="absolute -top-7 -right-4" />
+                    <motion.img
+                      animate={{
+                        scale: [0, 1],
+                        rotate: [0, 90, 120, 210, 300, 360],
+                        borderRadius: ["10%", "10%", "10%", "10%", "10%"],
+                      }}
+                      src="/assets/qrs/meta-qr.png"
+                    />
+                  </div>
+                ) : null}
+                {selectedPlatform === "mchat" ? (
+                  <div
+                    className="relative cursor-pointer"
+                    onClick={() => choosePlatform(null)}
+                  >
+                    <CloseIcon className="absolute -top-7 -right-4" />
+                    <motion.img
+                      animate={{
+                        scale: [0, 1],
+                        rotate: [0, 90, 120, 210, 300, 360],
+                        borderRadius: ["10%", "10%", "10%", "10%", "10%"],
+                      }}
+                      src="/assets/qrs/mchat-qr.png"
+                    />
+                  </div>
+                ) : null}
+                {selectedPlatform === "mnft" ? (
+                  <div
+                    className="relative cursor-pointer"
+                    onClick={() => choosePlatform(null)}
+                  >
+                    <CloseIcon className="absolute -top-7 -right-4" />
+                    <motion.img
+                      animate={{
+                        scale: [0, 1],
+                        rotate: [0, 90, 120, 210, 300, 360],
+                        borderRadius: ["10%", "10%", "10%", "10%", "10%"],
+                      }}
+                      src="/assets/qrs/mnft-qr.png"
+                    />
+                  </div>
+                ) : null}
+                <div className="text-center my-[30px] font-bold">
+                  Other login methods
+                </div>
+                <div className="flex">
+                  <motion.img
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0 }}
+                    onClick={() => choosePlatform("meta")}
+                    src="/assets/logos/MetaMask-Logo-PNG6.png"
+                    className="h-[70px] -mr-[20px] cursor-pointer"
+                  />
+                  <motion.img
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.6 }}
+                    onClick={() => choosePlatform("mchat")}
+                    src="/assets/logos/mongolchat.png"
+                    className="h-[70px] cursor-pointer"
+                  />
+                  <motion.img
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.6 }}
+                    onClick={() => choosePlatform("mnft")}
+                    src="/assets/logos/ogmain.png"
+                    className="h-[40px] mt-[15px] cursor-pointer "
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <MySnackbarContentWrapper
-            onClose={() => setSnackbar({ ...snackbar, open: false })}
-            variant={snackbar.variant}
-            message={snackbar.message}
-            open={snackbar.open}
-            autoHideDuration={6000}
-          />
-          <ProTip message="Not yet registered?" verb="Register" url="/create" />
-        </Box>
-      </Container>
-      <Footer /> */}
+        </div>
+      )}
     </>
   );
 }
