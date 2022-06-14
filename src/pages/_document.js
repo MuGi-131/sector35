@@ -1,14 +1,14 @@
-import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheets } from '@material-ui/styles';
-import theme from '../components/theme';
+import React from "react";
+import Document, { Head, Main, NextScript } from "next/document";
+import { ServerStyleSheets } from "@material-ui/styles";
+import theme from "../components/theme";
 
 class MyDocument extends Document {
   render() {
     return (
       <html lang="en">
         <Head>
-        <link rel='icon' href='/favicon.ico' />
+          <link rel="icon" href="/favicon.ico" />
           <meta charSet="utf-8" />
           <meta
             name="viewport"
@@ -16,10 +16,7 @@ class MyDocument extends Document {
           />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link
-            rel="stylesheet"
-            href="/style.css"
-          />
+          <link rel="stylesheet" href="/style.css" />
         </Head>
         <body>
           <Main />
@@ -30,7 +27,7 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = async ctx => {
+MyDocument.getInitialProps = async (ctx) => {
   // Resolution order
   //
   // On the server:
@@ -59,7 +56,7 @@ MyDocument.getInitialProps = async ctx => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: App => props => sheets.collect(<App {...props} />),
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     });
 
   const initialProps = await Document.getInitialProps(ctx);
