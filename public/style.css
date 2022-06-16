@@ -320,23 +320,38 @@
 
 body {
   background-color: #393636 !important;
-}
-
-.awssld--foldOutAnimation {
-  height: 480px;
+  cursor: pointer;
 }
 
 .awssld__bullets {
   display: none !important;
 }
 
-.Layout-container {
-  background: white;
-  overflow: hidden;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-    0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
-    0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
+.contin {
+  height: 100vh;
   display: flex;
+  width: 900px;
   flex-direction: column;
-  --container-width: 30em;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  align-content: flex-end;
+}
+
+.continn {
+  display: flex;
+}
+
+.conti {
+  display: flex;
+  justify-content: center;
+}
+
+.Contentnn {
+  flex: 1;
+  background-color: #262626;
+}
+
+.awssld__container {
+  height: 100%;
 }
