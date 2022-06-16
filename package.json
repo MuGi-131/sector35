@@ -32,7 +32,6 @@
     "postcss": "^8.4.14",
     "prop-types": "^15.7.2",
     "react": "^17.0.0",
-    "react-3-carousel": "^1.0.6",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "^17.0.0",
     "react-id-swiper": "^4.0.0",
