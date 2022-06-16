@@ -1,65 +1,30 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
-import ProTip from "../components/ProTip";
-import Link from "../components/Link";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
-import { makeStyles } from "@material-ui/core/styles";
+import Carousel from "react-3-carousel";
 
-const useStyles = makeStyles((theme) => ({
-  margin: {
-    marginTop: theme.spacing(2),
-    margin: theme.spacing(1),
-  },
-  container: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-  },
-}));
-
-export default function Index() {
-  const classes = useStyles();
-
+export default function Page() {
   return (
-    <>
-      <Nav />
-      <Container maxWidth="sm">
-        <Box my={4}>
-          <img
-            src="/undraw_react.svg"
-            alt="illustration"
-            width="100%"
-            id="landingImg"
-          />
-          <div className={classes.container}>
-            <Button
-              variant="contained"
-              color="primary"
-              component={Link}
-              naked
-              href="create"
-              className={classes.margin}
-            >
-              Create New
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              component={Link}
-              naked
-              href="export"
-              className={classes.margin}
-            >
-              Export All
-            </Button>
-          </div>
-          <ProTip message="Already registered?" verb="Login" url="/login" />
-        </Box>
-      </Container>
-      <Footer />
-    </>
+    <div>
+      asdfa
+      {/* <Carousel
+        titles={[
+          "SLIDE ONE",
+          "SLIDE TWO",
+          "SLIDE THREE",
+          "SLIDE FOUR",
+          "SLIDE FIVE",
+        ]}
+        descriptions={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          " Etiam mollis ex dolor, eget gravida felis blandit id. Curabitur congue nibh et gravida volutpat.",
+          "Integer tincidunt lorem non lacus laoreet, sed porta dui porttitor. ",
+          "Vestibulum suscipit vel dolor sit amet bibendum.",
+          "Nam ipsum enim, rutrum nec lectus eu, imperdiet dictum quam. ",
+        ]}
+      ></Carousel> */}
+    </div>
   );
+}
+export async function getStaticProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
 }

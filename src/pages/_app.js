@@ -4,7 +4,7 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../components/theme";
-import "../../public/style.css";
+import "../../public/style.scss";
 import "react-awesome-slider/src/styled/fold-out-animation/fold-out-animation.scss";
 export default class MyApp extends App {
   componentDidMount() {
