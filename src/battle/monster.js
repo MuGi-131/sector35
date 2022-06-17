@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export function Monster() {
   const variants = {
@@ -14,7 +14,7 @@ export function Monster() {
   return (
     <div className="relative">
       <motion.div
-        animate={hit ? "health1" : "health2"}
+        animate={hit ? 'health1' : 'health2'}
         variants={variants}
         transition={{ duration: 1, delay: 0.3 }}
         onClick={() => setHealth(!health)}
@@ -24,9 +24,9 @@ export function Monster() {
       </motion.div>
       <motion.div
         onClick={() => setHit(!hit)}
-        animate={hit ? "hit" : "unhit"}
+        animate={hit ? 'hit' : 'unhit'}
         variants={variants}
-        className="flex p-[200px]"
+        className="flex p-[40px]"
       >
         <img
           className="cursor-pointer m-auto"
