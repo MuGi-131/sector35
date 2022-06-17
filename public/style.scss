@@ -347,3 +347,11 @@
   width: calc(100vw * var(--ratio));
   /* max-width: var(--container-width);   */
 }
+
+.CarouselComp div div > div:nth-child(1) {
+  display: none !important;
+}
+
+.CarouselComp div div > div:nth-child(5) {
+  display: none !important;
+}
