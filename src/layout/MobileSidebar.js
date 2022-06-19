@@ -1,13 +1,10 @@
-import { Button, Drawer } from "@mui/material";
-import React from "react";
+import { Button, Drawer } from '@mui/material';
+import React from 'react';
 export function MobileSidebar() {
   const [state, setState] = React.useState(false);
 
   const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
 

@@ -24,7 +24,7 @@ class MyApp extends App {
     return (
       <>
         <Head>
-          <title>INFINITE WARS</title>
+          <title>SECTOR35</title>
         </Head>
         <ThemeProvider theme={theme}>
           <Provider store={store}>
@@ -39,6 +39,9 @@ class MyApp extends App {
           :global(html),
           :globa(body),
           :global(#__next) {
+            font-family: elevon, sans-serif;
+            font-weight: 700;
+            font-style: normal;
             display: flex;
             align-content: center;
             justify-content: center;
@@ -47,6 +50,11 @@ class MyApp extends App {
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+          }
+          :global(h1) {
+            font-family: elevon, sans-serif;
+            font-weight: 700;
+            font-style: normal;
           }
         `}</style>
       </>

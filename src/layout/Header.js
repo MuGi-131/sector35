@@ -24,38 +24,146 @@ export function Header() {
   return (
     <div className="bg-black">
       <div className="flex justify-center space-x-10">
-        <div className="cursor-pointer">
-          <div>
-            <Button onClick={handleOpen}>Open modal</Button>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-              BackdropComponent={Backdrop}
-              BackdropProps={{
-                timeout: 1000,
-              }}
-            >
-              <Box sx={style}>
-                <motion.div
-                  // animate={{
-                  //   scale: [0, 0, 0, 0.8, 1, 1, 1, 1, 1],
-                  // }}
-                  animate={{ y: 0, y: 50 }}
-                  transition={{ type: 'spring', stiffness: 400 }}
-                  className="w-full bg-black h-[400px] relative flex"
-                >
-                  <div className="m-auto text-white">sdklfjaklsdjfklasjdklfjasdkljf</div>
-                </motion.div>
-              </Box>
-            </Modal>
+        <>
+          <div className="cursor-pointer text-white" onClick={handleOpen}>
+            GUILD
           </div>
-        </div>
-        <div className="cursor-pointer text-white">menu 2</div>
-        <div className="cursor-pointer text-white">menu 3</div>
-        <div className="cursor-pointer text-white">menu 4</div>
-        <div className="cursor-pointer text-white">menu 5</div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 1000,
+            }}
+          >
+            <Box sx={style}>
+              <motion.div
+                // animate={{
+                //   scale: [0, 0, 0, 0.8, 1, 1, 1, 1, 1],
+                // }}
+                animate={{ y: 0, y: 50 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+                className="w-full bg-black h-[400px] relative flex"
+              >
+                <div className="m-auto text-white">sdklfjaklsdjfklasjdklfjasdkljf</div>
+              </motion.div>
+            </Box>
+          </Modal>
+        </>
+        <>
+          <div className="cursor-pointer text-white" onClick={handleOpen}>
+            COIN
+          </div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 1000,
+            }}
+          >
+            <Box sx={style}>
+              <motion.div
+                // animate={{
+                //   scale: [0, 0, 0, 0.8, 1, 1, 1, 1, 1],
+                // }}
+                animate={{ y: 0, y: 50 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+                className="w-full bg-black h-[400px] relative flex"
+              >
+                <div className="m-auto text-white">sdklfjaklsdjfklasjdklfjasdkljf</div>
+              </motion.div>
+            </Box>
+          </Modal>
+        </>
+        <>
+          <div className="cursor-pointer text-white" onClick={handleOpen}>
+            CHEST
+          </div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 1000,
+            }}
+          >
+            <Box sx={style}>
+              <motion.div
+                // animate={{
+                //   scale: [0, 0, 0, 0.8, 1, 1, 1, 1, 1],
+                // }}
+                animate={{ y: 0, y: 50 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+                className="w-full bg-black h-[400px] relative flex"
+              >
+                <div className="m-auto text-white">sdklfjaklsdjfklasjdklfjasdkljf</div>
+              </motion.div>
+            </Box>
+          </Modal>
+        </>
+        <>
+          <div className="cursor-pointer text-white" onClick={handleOpen}>
+            VIP
+          </div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 1000,
+            }}
+          >
+            <Box sx={style}>
+              <motion.div
+                // animate={{
+                //   scale: [0, 0, 0, 0.8, 1, 1, 1, 1, 1],
+                // }}
+                animate={{ y: 0, y: 50 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+                className="w-full bg-black h-[400px] relative flex"
+              >
+                <div className="m-auto text-white">sdklfjaklsdjfklasjdklfjasdkljf</div>
+              </motion.div>
+            </Box>
+          </Modal>
+        </>
+        <>
+          <div className="cursor-pointer text-white" onClick={handleOpen}>
+            SHOP
+          </div>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 1000,
+            }}
+          >
+            <Box sx={style}>
+              <motion.div
+                // animate={{
+                //   scale: [0, 0, 0, 0.8, 1, 1, 1, 1, 1],
+                // }}
+                animate={{ y: 0, y: 50 }}
+                transition={{ type: 'spring', stiffness: 400 }}
+                className="w-full bg-black h-[400px] relative flex"
+              >
+                <div className="m-auto text-white">sdklfjaklsdjfklasjdklfjasdkljf</div>
+              </motion.div>
+            </Box>
+          </Modal>
+        </>
       </div>
     </div>
   );

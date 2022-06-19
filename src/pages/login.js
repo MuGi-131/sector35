@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import CloseIcon from "@mui/icons-material/Close";
-import { LaunchAnimation } from "../components/lauchAnimation";
-import useSound from "use-sound";
-import { Backdrop } from "@material-ui/core";
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import CloseIcon from '@mui/icons-material/Close';
+import { LaunchAnimation } from '../components/lauchAnimation';
+import useSound from 'use-sound';
+import { Backdrop } from '@material-ui/core';
+import LoginLayout from '/src/layout/LoginLayout';
 
 export default function Page() {
   const [selectedPlatform, setSelectedPlatform] = useState(null);
@@ -12,20 +13,20 @@ export default function Page() {
   const choosePlatform = (platform) => {
     setSelectedPlatform(platform);
   };
-  const [play] = useSound("/assets/audio/hover.mp3");
+  const [play] = useSound('/assets/audio/hover.mp3');
   useEffect(() => {
-    document.getElementById("focus_input")?.focus();
+    document.getElementById('focus_input')?.focus();
   }, []);
   setTimeout(() => {
     setPlayMusic(playMusic + 1);
   }, 500);
   useEffect(() => {
-    document.getElementById("player").play();
+    document.getElementById('player').play();
   }, [playMusic]);
   return (
-    <>
+    <LoginLayout>
       <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={true}
       ></Backdrop>
       {launch ? (
@@ -70,7 +71,7 @@ export default function Page() {
                     </a>
                   </form>
                 ) : null}
-                {selectedPlatform === "meta" ? (
+                {selectedPlatform === 'meta' ? (
                   <div
                     className="relative cursor-pointer"
                     onClick={() => choosePlatform(null)}
@@ -80,13 +81,13 @@ export default function Page() {
                       animate={{
                         scale: [0, 1],
                         rotate: [0, 90, 120, 210, 300, 360],
-                        borderRadius: ["10%", "10%", "10%", "10%", "10%"],
+                        borderRadius: ['10%', '10%', '10%', '10%', '10%'],
                       }}
                       src="/assets/qrs/meta-qr.png"
                     />
                   </div>
                 ) : null}
-                {selectedPlatform === "mchat" ? (
+                {selectedPlatform === 'mchat' ? (
                   <div
                     className="relative cursor-pointer"
                     onClick={() => choosePlatform(null)}
@@ -96,13 +97,13 @@ export default function Page() {
                       animate={{
                         scale: [0, 1],
                         rotate: [0, 90, 120, 210, 300, 360],
-                        borderRadius: ["10%", "10%", "10%", "10%", "10%"],
+                        borderRadius: ['10%', '10%', '10%', '10%', '10%'],
                       }}
                       src="/assets/qrs/mchat-qr.png"
                     />
                   </div>
                 ) : null}
-                {selectedPlatform === "mnft" ? (
+                {selectedPlatform === 'mnft' ? (
                   <div
                     className="relative cursor-pointer"
                     onClick={() => choosePlatform(null)}
@@ -112,20 +113,18 @@ export default function Page() {
                       animate={{
                         scale: [0, 1],
                         rotate: [0, 90, 120, 210, 300, 360],
-                        borderRadius: ["10%", "10%", "10%", "10%", "10%"],
+                        borderRadius: ['10%', '10%', '10%', '10%', '10%'],
                       }}
                       src="/assets/qrs/mnft-qr.png"
                     />
                   </div>
                 ) : null}
-                <div className="text-center my-[30px] font-bold">
-                  Other login methods
-                </div>
+                <div className="text-center my-[30px] font-bold">Other login methods</div>
                 <div className="flex">
                   <motion.img
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0 }}
-                    onClick={() => choosePlatform("meta")}
+                    onClick={() => choosePlatform('meta')}
                     src="/assets/logos/MetaMask-Logo-PNG6.png"
                     className="h-[70px] -mr-[20px] cursor-pointer"
                     onMouseEnter={play}
@@ -133,7 +132,7 @@ export default function Page() {
                   <motion.img
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.6 }}
-                    onClick={() => choosePlatform("mchat")}
+                    onClick={() => choosePlatform('mchat')}
                     src="/assets/logos/mongolchat.png"
                     className="h-[70px] cursor-pointer"
                     onMouseEnter={play}
@@ -141,7 +140,7 @@ export default function Page() {
                   <motion.img
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.6 }}
-                    onClick={() => choosePlatform("mnft")}
+                    onClick={() => choosePlatform('mnft')}
                     src="/assets/logos/ogmain.png"
                     className="h-[40px] mt-[15px] cursor-pointer "
                     onMouseEnter={play}
@@ -152,6 +151,6 @@ export default function Page() {
           </div>
         </div>
       )}
-    </>
+    </LoginLayout>
   );
 }
