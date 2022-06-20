@@ -1,29 +1,7 @@
-import { Monster } from "./monster";
-import Link from "next/link";
-
-export function Battle() {
+export function Level2() {
   return (
     <div className="flex w-full h-full">
-      <div className="w-7/12 flex flex-col">
-        <div className="h-[35px] flex">
-          <Link href="/camp">
-            <div class="rounded-tl-lg rounded-tr-lg flex justify-center items-center hover:bg-white hover:text-black text-white border border-solid border-white w-full">
-              Camp
-            </div>
-          </Link>
-          <div class="rounded-tl-lg rounded-tr-lg flex justify-center items-center bg-white text-black border border-solid border-white w-full">
-            Battle
-          </div>
-          <div class="rounded-tl-lg rounded-tr-lg flex justify-center items-center hover:bg-white hover:text-black text-white border border-solid border-white w-full">
-            Duel
-          </div>
-          <div class="rounded-tl-lg rounded-tr-lg flex justify-center items-center hover:bg-white hover:text-black text-white border border-solid border-white w-full">
-            Rank
-          </div>
-          <div class="rounded-tl-lg rounded-tr-lg flex justify-center items-center hover:bg-white hover:text-black text-white border border-solid border-white w-full">
-            Quest
-          </div>
-        </div>
+      <div className="w-7/12">
         <div className="w-full h-full flex">
           <div className="w-full bg-orange-100 opacity-80 overflow-auto flex flex-wrap">
             <div className="w-6/12 h-[70px] flex flex-row hover:bg-yellow-500 border-2 border-solid border-white hover:border-black rounded-md content-cover divide-x">
@@ -72,8 +50,8 @@ export function Battle() {
           </div>
         </div>
       </div>
-      <div className="w-5/12 h-full bg-none">
-        <Monster />
+      <div className="w-5/12">
+        <boss />
       </div>
     </div>
   );

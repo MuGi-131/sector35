@@ -1,7 +1,7 @@
 import { MainLayout } from "../../layout/MainLayout";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
-import { Battle } from "/src/components/battle/battle";
+import { Battle } from "/src/components/boss/battle";
 import { Rank } from "/src/components/rank";
 
 export default function Index({}) {
@@ -13,13 +13,10 @@ export default function Index({}) {
         infinite={false}
         bullets={false}
         organicArrows={false}
-        animation="cubeAnimation"
+        animation="fallAnimation"
       >
-        <div className="w-full h-full bg-cover bg-[url('assets/bg_location/land1.png')]">
+        <div className="w-full h-full bg-cover bg-[url('assets/bg_location/land7.png')]">
           <Battle />
-        </div>
-        <div className="w-full h-full bg-cover bg-[url('assets/bg_location/land1.png')]">
-          <Rank />
         </div>
       </AwesomeSlider>
     </MainLayout>
