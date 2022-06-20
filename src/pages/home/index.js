@@ -1,28 +1,23 @@
-// import { Canvas } from '@react-three/fiber';
+import { HomeLayout } from "../../layout/HomeLayout";
+import AwesomeSlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
+import { Battle } from "/src/components/battle/battle";
+import { Rank } from "/src/components/rank";
 
-export default function Home() {
+export default function Index({}) {
   return (
-    <h1 style={headerFont} className="text-white">
-      Jeff Delaney
-      <style jsx global>
-        {`
-          :global(h1) {
-            font-family: elevon, sans-serif;
-            font-weight: 700;
-            font-style: normal;
-          }
-        `}
-      </style>
-    </h1>
+    <HomeLayout>
+      <AwesomeSlider
+        // className="absolute h-0 w-0"
+        fillParent={true}
+        infinite={true}
+        bullets={true}
+        organicArrows={true}
+        animation="scaleOutAnimation"
+      >
+        <div className="w-full h-full bg-cover bg-[url('assets/space.jpeg')]">yes</div>
+        <div className="w-full h-full bg-cover bg-[url('assets/space.jpeg')]">test</div>
+      </AwesomeSlider>
+    </HomeLayout>
   );
 }
-
-const headerFont = {
-  fontFamily: 'elevon, sans-serif',
-  fontWeight: 700,
-  fontStyle: 'normal',
-};
-
-const canvas = {
-  background: '#000',
-};

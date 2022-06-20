@@ -1,26 +1,26 @@
-import gsap from 'gsap';
-import React, { useEffect, useRef, useState } from 'react';
-import StoryLayout from '/src/layout/StoryLayout';
-import { useRouter } from 'next/router';
+import gsap from "gsap";
+import React, { useEffect, useRef, useState } from "react";
+import StoryLayout from "/src/layout/StoryLayout";
+import { useRouter } from "next/router";
 
 function App() {
   const intro = useRef();
   const title = useRef();
   const content = useRef();
-
-  const [muted, setMuted] = useState(true);
   const [playMusic, setPlayMusic] = useState(1);
-  const choosePlatform = (platform) => {
-    setSelectedPlatform(platform);
-  };
   const [redirectSeconds, setRedirectSeconds] = useState(65);
   const router = useRouter();
-  const query = router.query;
+
+  function musicPlay() {
+    document.getElementById("player")?.play();
+  }
 
   useEffect(() => {
-    document.getElementById('player').play();
+    setPlayMusic(playMusic + 1);
+    musicPlay();
   }, [playMusic]);
 
+  // text animation
   useEffect(() => {
     let tl = new gsap.timeline();
 
@@ -34,14 +34,15 @@ function App() {
         duration: 1.5,
       })
       .set(title.current, { opacity: 1, scale: 2.75, delay: 0.5 })
-      .to(title.current, { scale: 0.05, ease: 'power2', duration: 8 })
-      .to(title.current, { opacity: 0, duration: 1.5 }, '-=1.5')
-      .to(content.current, { top: '-170%', duration: 200 });
+      .to(title.current, { scale: 0.05, ease: "power2", duration: 8 })
+      .to(title.current, { opacity: 0, duration: 1.5 }, "-=1.5")
+      .to(content.current, { top: "-170%", duration: 200 });
   }, []);
 
+  // redirect after few seconds
   useEffect(() => {
     if (redirectSeconds == 0) {
-      router.push('/main');
+      router.push("/main");
       return;
     }
 
@@ -53,7 +54,7 @@ function App() {
 
   return (
     <StoryLayout>
-      <div className="container w-screen h-screen">
+      <div className="w-full h-full w-screen h-screen">
         <audio id="player" autoPlay controls className="hidden">
           <source src="/assets/audio/starwars.mp3" type="audio/mp3" />
         </audio>
@@ -68,7 +69,7 @@ function App() {
         </section>
         <section className="crawl">
           <div className="content" ref={content}>
-            <h1 className="episode-number">Level 1</h1>
+            <h1 className="episode-number">Chapter 1</h1>
             <h2 className="episode-title">THE DARKNESS AWAKENS</h2>
             <p>
               Somewhere far far away in galaxy a mysterious DARK FORCE is on the rise to

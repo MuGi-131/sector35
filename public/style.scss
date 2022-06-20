@@ -1,99 +1,100 @@
-@import url('https://use.typekit.net/jmk3xov.css');
+@import url("https://use.typekit.net/jmk3xov.css");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap");
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
 
 @font-face {
-  font-family: 'Product Sans Regular';
+  font-family: "Product Sans Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Regular'), url('fonts/ProductSans-Regular.woff') format('woff');
+  src: local("Product Sans Regular"), url("fonts/ProductSans-Regular.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Italic';
+  font-family: "Product Sans Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Italic'), url('fonts/ProductSans-Italic.woff') format('woff');
+  src: local("Product Sans Italic"), url("fonts/ProductSans-Italic.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Thin Regular';
+  font-family: "Product Sans Thin Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Thin Regular'),
-    url('fonts/ProductSans-Thin.woff') format('woff');
+  src: local("Product Sans Thin Regular"),
+    url("fonts/ProductSans-Thin.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Light Regular';
+  font-family: "Product Sans Light Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Light Regular'),
-    url('fonts/ProductSans-Light.woff') format('woff');
+  src: local("Product Sans Light Regular"),
+    url("fonts/ProductSans-Light.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Medium Regular';
+  font-family: "Product Sans Medium Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Medium Regular'),
-    url('fonts/ProductSans-Medium.woff') format('woff');
+  src: local("Product Sans Medium Regular"),
+    url("fonts/ProductSans-Medium.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Black Regular';
+  font-family: "Product Sans Black Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Black Regular'),
-    url('fonts/ProductSans-Black.woff') format('woff');
+  src: local("Product Sans Black Regular"),
+    url("fonts/ProductSans-Black.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Thin Italic';
+  font-family: "Product Sans Thin Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Thin Italic'),
-    url('fonts/ProductSans-ThinItalic.woff') format('woff');
+  src: local("Product Sans Thin Italic"),
+    url("fonts/ProductSans-ThinItalic.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Light Italic';
+  font-family: "Product Sans Light Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Light Italic'),
-    url('fonts/ProductSans-LightItalic.woff') format('woff');
+  src: local("Product Sans Light Italic"),
+    url("fonts/ProductSans-LightItalic.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Medium Italic';
+  font-family: "Product Sans Medium Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Medium Italic'),
-    url('fonts/ProductSans-MediumItalic.woff') format('woff');
+  src: local("Product Sans Medium Italic"),
+    url("fonts/ProductSans-MediumItalic.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Bold';
+  font-family: "Product Sans Bold";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Bold'), url('fonts/ProductSans-Bold.woff') format('woff');
+  src: local("Product Sans Bold"), url("fonts/ProductSans-Bold.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Bold Italic';
+  font-family: "Product Sans Bold Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Bold Italic'),
-    url('fonts/ProductSans-BoldItalic.woff') format('woff');
+  src: local("Product Sans Bold Italic"),
+    url("fonts/ProductSans-BoldItalic.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Product Sans Black Italic';
+  font-family: "Product Sans Black Italic";
   font-style: normal;
   font-weight: normal;
-  src: local('Product Sans Black Italic'),
-    url('fonts/ProductSans-BlackItalic.woff') format('woff');
+  src: local("Product Sans Black Italic"),
+    url("fonts/ProductSans-BlackItalic.woff") format("woff");
 }
 
 /* Variables */
@@ -391,7 +392,7 @@ img {
     rgba(0, 0, 0, 0) 100%
   );
   bottom: 0;
-  content: ' ';
+  content: " ";
   left: 0;
   right: 0;
   position: absolute;
@@ -422,7 +423,7 @@ img {
 }
 
 .episode-title {
-  font-family: 'Saira Extra Condensed', sans-serif;
+  font-family: "Saira Extra Condensed", sans-serif;
   font-size: 250%;
   font-weight: 500;
   line-height: 1;
@@ -449,4 +450,23 @@ img {
 }
 .volume img {
   height: 24px;
+}
+
+.aws-sld {
+  &--exit {
+    &.aws-sld--moveRight,
+    &.aws-sld--moveLeft {
+      animation: scaleOut var(--slider-transition-duration) both var(--transition-bezier);
+    }
+  }
+}
+
+@keyframes scaleOut {
+  to {
+    transform: scale(0.85);
+  }
+}
+
+.tron {
+  font-family: "Orbitron", sans-serif;
 }

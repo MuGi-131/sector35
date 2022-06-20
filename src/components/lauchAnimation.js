@@ -1,10 +1,27 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+
 export function LaunchAnimation() {
   function musicPlay() {
     document.getElementById("player")?.play();
   }
   const [playMusic, setPlayMusic] = useState(1);
+  const router = useRouter();
+  const [redirectSeconds, setRedirectSeconds] = useState(25);
+
+  // redirect after few seconds
+  useEffect(() => {
+    if (redirectSeconds == 0) {
+      router.push("/home");
+      return;
+    }
+
+    setTimeout(() => {
+      console.log(redirectSeconds);
+      setRedirectSeconds((redirectSeconds) => redirectSeconds - 1);
+    }, 1000);
+  }, [redirectSeconds]);
 
   useEffect(() => {
     setPlayMusic(playMusic + 1);
